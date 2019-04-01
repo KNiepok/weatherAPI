@@ -20,7 +20,7 @@ func (s *Api) AddBookmark() http.HandlerFunc {
 		}
 
 		if err := s.service.AddBookmark(body.Name); err != nil {
-			_ = render.Render(w, r, ErrInvalidRequest(err))
+			_ = render.Render(w, r, ErrServerError(err))
 			return
 		}
 
@@ -32,7 +32,7 @@ func (s *Api) GetBookmarks() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		locations, err := s.service.GetBookmarks()
 		if err != nil {
-			_ = render.Render(w, r, ErrInvalidRequest(err))
+			_ = render.Render(w, r, ErrServerError(err))
 			return
 		}
 

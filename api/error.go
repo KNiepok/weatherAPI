@@ -30,3 +30,17 @@ func ErrInvalidRequest(err error) render.Renderer {
 		ErrorText:      errorText,
 	}
 }
+
+
+func ErrServerError(err error) render.Renderer {
+	var errorText string
+	if err != nil {
+		errorText = err.Error()
+	}
+	return &ErrResponse{
+		Err:            err,
+		HTTPStatusCode: http.StatusInternalServerError,
+		StatusText:     "Server error",
+		ErrorText:      errorText,
+	}
+}

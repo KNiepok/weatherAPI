@@ -30,6 +30,8 @@ var (
 
 			db, err := sql.Open("sqlite3", dbPath)
 
+			defer db.Close()
+
 			if err != nil {
 				log.Fatal(err)
 			}

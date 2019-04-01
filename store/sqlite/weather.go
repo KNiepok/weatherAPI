@@ -114,6 +114,10 @@ func (ws *WeatherStorage) getOccurrences(l *weatherapi.Location) (map[string]map
 	return mapped, nil
 }
 
+func (ws *WeatherStorage) Close() error {
+	return ws.db.Close()
+}
+
 func (ws *WeatherStorage) migrate() error {
 	_, err := ws.db.Exec("CREATE TABLE IF NOT EXISTS weather_queries (id integer not null primary key, location_name TEXT, date DATE,type TEXT, temp FLOAT(7,4), min_temp FLOAT(7,4), max_temp FLOAT(7,4));")
 	return err
