@@ -10,6 +10,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/ortuman/jackal/log"
 	"github.com/spf13/cobra"
+	"os"
 )
 
 var (
@@ -45,8 +46,7 @@ var (
 				panic(err)
 			}
 
-			//apiKey := os.Getenv("OWM_API_KEY")
-			apiKey := "4c8382b8189f3b8ceb421d363a84c4f2"
+			apiKey := os.Getenv("OPEN_WEATHER_API_KEY")
 			weatherFetcher := open_weather.New(apiKey)
 
 			service := service.New(weatherService, bookmarksService, weatherFetcher)

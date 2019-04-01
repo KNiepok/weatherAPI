@@ -26,7 +26,7 @@ func ErrInvalidRequest(err error) render.Renderer {
 	return &ErrResponse{
 		Err:            err,
 		HTTPStatusCode: http.StatusBadRequest,
-		StatusText:     "Invalid request.",
+		StatusText:     "Invalid request",
 		ErrorText:      errorText,
 	}
 }

@@ -43,7 +43,7 @@ type Statistics struct {
 
 type MonthlyStats struct {
 	Temperatures     *Temperatures       `json:"temperatures"`
-	TypesOccurrences map[WeatherType]int `json:"TypesOccurrences"`
+	TypesOccurrences map[WeatherType]int `json:"typesOccurrences"`
 }
 
 type Temperatures struct {

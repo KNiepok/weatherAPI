@@ -1,7 +1,6 @@
 package api
 
 import (
-	"fmt"
 	"github.com/go-chi/chi"
 	"github.com/kniepok/weatherAPI"
 	"log"
@@ -48,10 +47,7 @@ func (s *Api) ListenAndServe() error {
 		Handler: s.router,
 	}
 
-	// Listen
 	listener, err := net.Listen("tcp", s.server.Addr)
-
-	fmt.Printf("listening on %v\n", s.server.Addr)
 	if err != nil {
 		return err
 	}
