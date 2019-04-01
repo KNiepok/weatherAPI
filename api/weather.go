@@ -18,7 +18,7 @@ func (s *Api) FetchWeather() http.HandlerFunc {
 		weatherData, err := s.service.GetWeather(body.Name)
 
 		if err != nil {
-			_ = render.Render(w, r, ErrInvalidRequest(err))
+			_ = render.Render(w, r, ErrServerError(err))
 			return
 		}
 
@@ -39,7 +39,7 @@ func (s *Api) GetStatistics() http.HandlerFunc {
 		stats, err := s.service.GetStatistics(locationName)
 
 		if err != nil {
-			_ = render.Render(w, r, ErrInvalidRequest(err))
+			_ = render.Render(w, r, ErrServerError(err))
 			return
 		}
 
